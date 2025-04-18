@@ -1,6 +1,11 @@
 plugins {
     application
     id("org.sonarqube") version "6.0.1.5171"
+    checkstyle
+}
+
+checkstyle {
+    toolVersion = "10.12.4"
 }
 
 sonar {

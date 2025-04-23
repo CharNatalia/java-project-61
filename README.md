@@ -20,3 +20,5 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=CharNatalia_java-project-61&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=CharNatalia_java-project-61)
 
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=CharNatalia_java-project-61&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=CharNatalia_java-project-61)
+
+[![asciicast](https://asciinema.org/a/LJTPcQBAfxAeuZLND5250G9q5.svg)](https://asciinema.org/a/LJTPcQBAfxAeuZLND5250G9q5)

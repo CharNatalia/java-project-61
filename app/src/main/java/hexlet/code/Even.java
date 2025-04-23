@@ -30,7 +30,7 @@ public class Even {
             }
         }
         if (flag == 3) {
-            System.out.printf("Congratulations, %s!", user.getName());
+            System.out.printf("Congratulations, %s!%n", user.getName());
         }
     }
 

@@ -26,7 +26,7 @@ public class Even {
 
             victoryCounter++;
         }
-        Engine.isWinner(user, victoryCounter);
+        Engine.isWinner(user, answerIsRight);
     }
 
     public static String isEven(int num) {

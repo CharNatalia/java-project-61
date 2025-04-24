@@ -21,8 +21,8 @@ public class Engine {
         return scanner.nextLine();
     }
 
-    public static void isWinner(User user, int victoryCounter) {
-        if (victoryCounter == 3) {
+    public static void isWinner(User user, boolean answerIsRight) {
+        if (answerIsRight) {
             System.out.printf("Congratulations, %s!%n", user.getName());
         }
     }

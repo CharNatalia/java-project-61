@@ -18,7 +18,7 @@ public class Calc {
         while (victoryCounter != 3 && answerIsRight) {
             int randomNum1 = random.nextInt(100);
             int randomNum2 = random.nextInt(100);
-            char randomOperator = operators[random.nextInt(operators.length - 1)];
+            char randomOperator = operators[random.nextInt(operators.length)];
 
             String newAnswer = Engine.askQuestion(String.format("%d %c %d", randomNum1, randomOperator, randomNum2));
 
@@ -28,7 +28,7 @@ public class Calc {
 
             victoryCounter++;
         }
-        Engine.isWinner(user, victoryCounter);
+        Engine.isWinner(user, answerIsRight);
     }
 
     public static int calcResult(int randomNum1, int randomNum2, char operator) {

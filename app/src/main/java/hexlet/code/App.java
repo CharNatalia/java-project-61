@@ -1,6 +1,9 @@
 package hexlet.code;
 
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+
 import java.util.Scanner;
 
 public class App {
@@ -13,13 +16,15 @@ public class App {
                 Please enter the game number and press Enter.
                 1 - Greet
                 2 - Even
+                3 - Calc
                 0 - Exit""");
 
-        int choice = 0;
+        var choice = 0;
         try {
             choice = scanner.nextInt();
         } catch (Exception e) {
             System.out.println("Incorrect input");
+            System.exit(0);
         }
 
         switch (choice) {
@@ -34,6 +39,11 @@ public class App {
                 System.out.println("Your choice: " + choice);
                 Cli.sayHi(user);
                 Even.game(user);
+                break;
+            case 3:
+                System.out.println("Your choice: " + choice);
+                Cli.sayHi(user);
+                Calc.game(user);
                 break;
             default:
                 System.out.println("Incorrect input");

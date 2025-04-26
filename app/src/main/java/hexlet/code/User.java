@@ -9,7 +9,7 @@ public class User {
         this.name = null;
     }
 
-    public String getName() {
+    public final String getName() {
         if (name == null) {
             name = askName();
         }

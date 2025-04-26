@@ -11,15 +11,22 @@ public class Progression {
 
         String rules = "What number is missing in the progression?";
 
-        String[][] questionsAndAnswers = new String[2][3];
+        int minLengthProgression = 5;
+        int maxLengthProgression = 11;
 
-        for (var i = 0; i < questionsAndAnswers[0].length; i++) {
-            int progressionLength = random.nextInt(5, 11);
+        int rowLength = 2;
+        int columnLength = 3;
+        String[][] questionsAndAnswers = new String[rowLength][columnLength];
+
+        int maxNumberRange = 101;
+
+        for (var i = 0; i < columnLength; i++) {
+            int progressionLength = random.nextInt(minLengthProgression, maxLengthProgression);
 
             int hiddenNumIndex = random.nextInt(progressionLength);
 
-            int firstElement = random.nextInt(101);
-            int d = random.nextInt(101);
+            int firstElement = random.nextInt(maxNumberRange);
+            int d = random.nextInt(maxNumberRange);
 
             if (hiddenNumIndex == 0) {
                 questionsAndAnswers[1][i] = Integer.toString(firstElement);

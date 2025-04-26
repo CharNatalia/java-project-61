@@ -11,11 +11,15 @@ public class GCD {
 
         String rules = "Find the greatest common divisor of given numbers.";
 
-        String[][] questionsAndAnswers = new String[2][3];
+        int rowLength = 2;
+        int columnLength = 3;
+        String[][] questionsAndAnswers = new String[rowLength][columnLength];
 
-        for (var i = 0; i < questionsAndAnswers[0].length; i++) {
-            int randomNum1 = random.nextInt(100);
-            int randomNum2 = random.nextInt(100);
+        int maxNumberRange = 101;
+
+        for (var i = 0; i < columnLength; i++) {
+            int randomNum1 = random.nextInt(maxNumberRange);
+            int randomNum2 = random.nextInt(maxNumberRange);
 
             questionsAndAnswers[0][i] = String.format("%d %d", randomNum1, randomNum2);
             questionsAndAnswers[1][i] = getRightAnswer(randomNum1, randomNum2);

@@ -12,11 +12,16 @@ public class Calc {
         String rules = "What is the result of the expression?";
 
         char[] operators = {'+', '*', '-'};
-        String[][] questionsAndAnswers = new String[2][3];
 
-        for (var i = 0; i < questionsAndAnswers[0].length; i++) {
-            int randomNum1 = random.nextInt(100);
-            int randomNum2 = random.nextInt(100);
+        int rowLength = 2;
+        int columnLength = 3;
+        String[][] questionsAndAnswers = new String[rowLength][columnLength];
+
+        int maxNumberRange = 101;
+
+        for (var i = 0; i < columnLength; i++) {
+            int randomNum1 = random.nextInt(maxNumberRange);
+            int randomNum2 = random.nextInt(maxNumberRange);
             char randomOperator = operators[random.nextInt(operators.length)];
 
             questionsAndAnswers[0][i] = String.format("%d %c %d", randomNum1, randomOperator, randomNum2);

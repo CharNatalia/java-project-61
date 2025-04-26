@@ -5,25 +5,34 @@ import java.util.Scanner;
 public class Engine {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static boolean answerCheck(String rightAnswer, String newAnswer, User user) {
-        if (newAnswer.equals(rightAnswer)) {
-            System.out.println("Correct!");
-            return true;
-        } else {
-            System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n"
-                    + "Let's try again, %s!%n", newAnswer, rightAnswer, user.getName());
-            return false;
+    public static void answerCheck(User user, String[][] qAndA, String rules) {
+        Cli.sayHi(user);
+
+        System.out.println(rules);
+
+        var answerIsRight = true;
+        var i = 0;
+
+        while (i <= qAndA.length && answerIsRight) {
+
+            var newAnswer = askQuestion(qAndA[0][i]);
+
+            if (newAnswer.equals(qAndA[1][i])) {
+                System.out.println("Correct!");
+                i++;
+            } else {
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n"
+                        + "Let's try again, %s!%n", newAnswer, qAndA[1][i], user.getName());
+                answerIsRight = false;
+            }
+        }
+        if (answerIsRight) {
+            System.out.printf("Congratulations, %s!%n", user.getName());
         }
     }
 
     public static String askQuestion(String question) {
         System.out.println("Question: " + question);
         return scanner.nextLine();
-    }
-
-    public static void isWinner(User user, boolean answerIsRight) {
-        if (answerIsRight) {
-            System.out.printf("Congratulations, %s!%n", user.getName());
-        }
     }
 }

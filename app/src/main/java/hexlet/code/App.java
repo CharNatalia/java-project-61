@@ -3,6 +3,7 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
 
 import java.util.Scanner;
 
@@ -37,12 +38,10 @@ public class App {
                 break;
             case 2:
                 System.out.println("Your choice: " + choice);
-                Cli.sayHi(user);
                 Even.game(user);
                 break;
             case 3:
                 System.out.println("Your choice: " + choice);
-                Cli.sayHi(user);
                 Calc.game(user);
                 break;
             default:

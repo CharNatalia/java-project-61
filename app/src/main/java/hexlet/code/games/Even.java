@@ -8,25 +8,19 @@ import java.util.Random;
 public class Even {
 
     public static void game(User user) {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
         Random random = new Random();
 
-        var victoryCounter = 0;
-        var answerIsRight = true;
+        String rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-        while (victoryCounter != 3 && answerIsRight) {
+        String[][] questionsAndAnswers = new String[2][3];
+
+        for (var i = 0; i < questionsAndAnswers[0].length; i++) {
             int randomNum = random.nextInt(100);
 
-            String newAnswer = Engine.askQuestion(Integer.toString(randomNum));
-
-            String rightAnswer = isEven(randomNum);
-
-            answerIsRight = Engine.answerCheck(rightAnswer, newAnswer, user);
-
-            victoryCounter++;
+            questionsAndAnswers[0][i] = String.format("%d", randomNum);
+            questionsAndAnswers[1][i] = isEven(randomNum);
         }
-        Engine.isWinner(user, answerIsRight);
+        Engine.answerCheck(user, questionsAndAnswers, rules);
     }
 
     public static String isEven(int num) {

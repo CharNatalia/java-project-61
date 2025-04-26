@@ -6,27 +6,27 @@ import hexlet.code.User;
 import java.util.Random;
 
 public class Progression {
+    private static final int MAX_NUMBER_RANGE = 101;
+    private static final int ROW_LENGTH = 2;
+    private static final int COLUMN_LENGTH = 3;
+
+    public static final int MIN_LENGTH_PROGRESSION = 5;
+    public static final int MAX_LENGTH_PROGRESSION = 11;
+
     public static void play(User user) {
         Random random = new Random();
 
         String rules = "What number is missing in the progression?";
 
-        int minLengthProgression = 5;
-        int maxLengthProgression = 11;
+        String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
 
-        int rowLength = 2;
-        int columnLength = 3;
-        String[][] questionsAndAnswers = new String[rowLength][columnLength];
-
-        int maxNumberRange = 101;
-
-        for (var i = 0; i < columnLength; i++) {
-            int progressionLength = random.nextInt(minLengthProgression, maxLengthProgression);
+        for (var i = 0; i < COLUMN_LENGTH; i++) {
+            int progressionLength = random.nextInt(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
 
             int hiddenNumIndex = random.nextInt(progressionLength);
 
-            int firstElement = random.nextInt(maxNumberRange);
-            int d = random.nextInt(maxNumberRange);
+            int firstElement = random.nextInt(MAX_NUMBER_RANGE);
+            int d = random.nextInt(MAX_NUMBER_RANGE);
 
             if (hiddenNumIndex == 0) {
                 questionsAndAnswers[1][i] = Integer.toString(firstElement);

@@ -6,6 +6,10 @@ import hexlet.code.User;
 import java.util.Random;
 
 public class Calc {
+    private static final int MAX_NUMBER_RANGE = 101;
+    private static final int ROW_LENGTH = 2;
+    private static final int COLUMN_LENGTH = 3;
+
     public static void play(User user) {
         Random random = new Random();
 
@@ -13,15 +17,11 @@ public class Calc {
 
         char[] operators = {'+', '*', '-'};
 
-        int rowLength = 2;
-        int columnLength = 3;
-        String[][] questionsAndAnswers = new String[rowLength][columnLength];
+        String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
 
-        int maxNumberRange = 101;
-
-        for (var i = 0; i < columnLength; i++) {
-            int randomNum1 = random.nextInt(maxNumberRange);
-            int randomNum2 = random.nextInt(maxNumberRange);
+        for (var i = 0; i < COLUMN_LENGTH; i++) {
+            int randomNum1 = random.nextInt(MAX_NUMBER_RANGE);
+            int randomNum2 = random.nextInt(MAX_NUMBER_RANGE);
             char randomOperator = operators[random.nextInt(operators.length)];
 
             questionsAndAnswers[0][i] = String.format("%d %c %d", randomNum1, randomOperator, randomNum2);

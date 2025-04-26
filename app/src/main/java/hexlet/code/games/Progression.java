@@ -6,7 +6,7 @@ import hexlet.code.User;
 import java.util.Random;
 
 public class Progression {
-    public static void play(User user){
+    public static void play(User user) {
         Random random = new Random();
 
         String rules = "What number is missing in the progression?";
@@ -14,7 +14,7 @@ public class Progression {
         String[][] questionsAndAnswers = new String[2][3];
 
         for (var i = 0; i < questionsAndAnswers[0].length; i++) {
-            int progressionLength = random.nextInt(5,11);
+            int progressionLength = random.nextInt(5, 11);
 
             int hiddenNumIndex = random.nextInt(progressionLength);
 

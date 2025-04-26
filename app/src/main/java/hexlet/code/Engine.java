@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     public static void answerCheck(User user, String[][] qAndA, String rules) {
         Cli.sayHi(user);
@@ -33,6 +33,6 @@ public class Engine {
 
     public static String askQuestion(String question) {
         System.out.println("Question: " + question);
-        return scanner.nextLine();
+        return SCANNER.nextLine();
     }
 }

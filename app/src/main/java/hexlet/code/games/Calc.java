@@ -30,7 +30,9 @@ public class Calc {
             case '+' -> Integer.toString(randomNum1 + randomNum2);
             case '*' -> Integer.toString(randomNum1 * randomNum2);
             case '-' -> Integer.toString(randomNum1 - randomNum2);
-            default -> throw new UnsupportedOperationException(String.format("Operation %c is not supported", operator));
+            default -> throw new UnsupportedOperationException(
+                    String.format("Operation %c is not supported", operator)
+            );
         };
     }
 }

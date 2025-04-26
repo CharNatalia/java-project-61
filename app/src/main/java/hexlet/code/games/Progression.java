@@ -6,7 +6,7 @@ import hexlet.code.User;
 import java.util.Random;
 
 public class Progression {
-    public static void game(User user){
+    public static void play(User user){
         Random random = new Random();
 
         String rules = "What number is missing in the progression?";

@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Even {
 
-    public static void game(User user) {
+    public static void play(User user) {
         Random random = new Random();
 
         String rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
@@ -18,12 +18,12 @@ public class Even {
             int randomNum = random.nextInt(100);
 
             questionsAndAnswers[0][i] = String.format("%d", randomNum);
-            questionsAndAnswers[1][i] = isEven(randomNum);
+            questionsAndAnswers[1][i] = getRightAnswer(randomNum);
         }
         Engine.answerCheck(user, questionsAndAnswers, rules);
     }
 
-    public static String isEven(int num) {
+    public static String getRightAnswer(int num) {
         if (num % 2 == 0) {
             return "yes";
         }

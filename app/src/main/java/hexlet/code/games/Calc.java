@@ -6,7 +6,7 @@ import hexlet.code.User;
 import java.util.Random;
 
 public class Calc {
-    public static void game(User user) {
+    public static void play(User user) {
         Random random = new Random();
 
         String rules = "What is the result of the expression?";
@@ -20,12 +20,12 @@ public class Calc {
             char randomOperator = operators[random.nextInt(operators.length)];
 
             questionsAndAnswers[0][i] = String.format("%d %c %d", randomNum1, randomOperator, randomNum2);
-            questionsAndAnswers[1][i] = calcResult(randomNum1, randomNum2, randomOperator);
+            questionsAndAnswers[1][i] = getRightAnswer(randomNum1, randomNum2, randomOperator);
         }
         Engine.answerCheck(user, questionsAndAnswers, rules);
     }
 
-    public static String calcResult(int randomNum1, int randomNum2, char operator) {
+    public static String getRightAnswer(int randomNum1, int randomNum2, char operator) {
         return switch (operator) {
             case '+' -> Integer.toString(randomNum1 + randomNum2);
             case '*' -> Integer.toString(randomNum1 * randomNum2);

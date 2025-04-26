@@ -6,7 +6,7 @@ import hexlet.code.User;
 import java.util.Random;
 
 public class Prime {
-    public static void game(User user) {
+    public static void play(User user) {
         Random random = new Random();
 
         String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";

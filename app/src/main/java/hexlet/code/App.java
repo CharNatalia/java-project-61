@@ -29,33 +29,35 @@ public class App {
             System.exit(0);
         }
 
+        String userChoice = "Your choice: " + choice;
+
         switch (choice) {
             case 0:
-                System.out.println("Your choice: " + choice);
+                System.out.println(userChoice);
                 break;
             case 1:
-                System.out.println("Your choice: " + choice);
+                System.out.println(userChoice);
                 Cli.sayHi(user);
                 break;
             case 2:
-                System.out.println("Your choice: " + choice);
-                Even.game(user);
+                System.out.println(userChoice);
+                Even.play(user);
                 break;
             case 3:
-                System.out.println("Your choice: " + choice);
-                Calc.game(user);
+                System.out.println(userChoice);
+                Calc.play(user);
                 break;
             case 4:
-                System.out.println("Your choice: " + choice);
-                GCD.game(user);
+                System.out.println(userChoice);
+                GCD.play(user);
                 break;
             case 5:
-                System.out.println("Your choice: " + choice);
-                Progression.game(user);
+                System.out.println(userChoice);
+                Progression.play(user);
                 break;
             case 6:
-                System.out.println("Your choice: " + choice);
-                Prime.game(user);
+                System.out.println(userChoice);
+                Prime.play(user);
                 break;
             default:
                 System.out.println("Incorrect input");

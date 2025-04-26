@@ -18,6 +18,7 @@ public class App {
                 1 - Greet
                 2 - Even
                 3 - Calc
+                4 - GCD
                 0 - Exit""");
 
         var choice = 0;
@@ -43,6 +44,10 @@ public class App {
             case 3:
                 System.out.println("Your choice: " + choice);
                 Calc.game(user);
+                break;
+            case 4:
+                System.out.println("Your choice: " + choice);
+                GCD.game(user);
                 break;
             default:
                 System.out.println("Incorrect input");

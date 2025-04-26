@@ -12,11 +12,6 @@
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=CharNatalia_java-project-61&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=CharNatalia_java-project-61)
 
 [![asciicast](https://asciinema.org/a/LJTPcQBAfxAeuZLND5250G9q5.svg)](https://asciinema.org/a/LJTPcQBAfxAeuZLND5250G9q5)
-
 [![asciicast](https://asciinema.org/a/NAy1W3RKl0MF9SDRackTM3Wul.svg)](https://asciinema.org/a/NAy1W3RKl0MF9SDRackTM3Wul)
-
 [![asciicast](https://asciinema.org/a/P1klLIhqWwKUmizZF5Y9KiHoU.svg)](https://asciinema.org/a/P1klLIhqWwKUmizZF5Y9KiHoU)
-
 [![asciicast](https://asciinema.org/a/17uSTQUm9eXBOUEP0DEMDw0zd.svg)](https://asciinema.org/a/17uSTQUm9eXBOUEP0DEMDw0zd)
-
-[![asciicast](https://asciinema.org/a/IJs9HfwzIQGRqrr6xIV5YxAzX.svg)](https://asciinema.org/a/IJs9HfwzIQGRqrr6xIV5YxAzX)

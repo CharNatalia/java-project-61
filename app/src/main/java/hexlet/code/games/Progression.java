@@ -23,7 +23,7 @@ public class Progression {
 
             if (hiddenNumIndex == 0) {
                 questionsAndAnswers[1][i] = Integer.toString(firstElement);
-                questionsAndAnswers[0][i] += ".. ";
+                questionsAndAnswers[0][i] = ".. ";
             } else {
                 questionsAndAnswers[0][i] = firstElement + " ";
             }

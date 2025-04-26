@@ -1,10 +1,7 @@
 package hexlet.code;
 
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
@@ -21,6 +18,7 @@ public class App {
                 3 - Calc
                 4 - GCD
                 5 - Progression
+                6 - Prime
                 0 - Exit""");
 
         var choice = 0;
@@ -54,6 +52,10 @@ public class App {
             case 5:
                 System.out.println("Your choice: " + choice);
                 Progression.game(user);
+                break;
+            case 6:
+                System.out.println("Your choice: " + choice);
+                Prime.game(user);
                 break;
             default:
                 System.out.println("Incorrect input");

@@ -11,7 +11,12 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=CharNatalia_java-project-61&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=CharNatalia_java-project-61)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=CharNatalia_java-project-61&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=CharNatalia_java-project-61)
 
+## Games
+### Even check
 [![asciicast](https://asciinema.org/a/LJTPcQBAfxAeuZLND5250G9q5.svg)](https://asciinema.org/a/LJTPcQBAfxAeuZLND5250G9q5)
+### Calculate
 [![asciicast](https://asciinema.org/a/NAy1W3RKl0MF9SDRackTM3Wul.svg)](https://asciinema.org/a/NAy1W3RKl0MF9SDRackTM3Wul)
+### The greatest common divisor (GCD)
 [![asciicast](https://asciinema.org/a/P1klLIhqWwKUmizZF5Y9KiHoU.svg)](https://asciinema.org/a/P1klLIhqWwKUmizZF5Y9KiHoU)
+### Arithmetic progression
 [![asciicast](https://asciinema.org/a/17uSTQUm9eXBOUEP0DEMDw0zd.svg)](https://asciinema.org/a/17uSTQUm9eXBOUEP0DEMDw0zd)

@@ -3,10 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.User;
 
-import java.util.Random;
-
 public class Progression {
-    private static final int MAX_NUMBER_RANGE = 101;
     private static final int ROW_LENGTH = 2;
     private static final int COLUMN_LENGTH = 3;
 
@@ -14,19 +11,17 @@ public class Progression {
     public static final int MAX_LENGTH_PROGRESSION = 11;
 
     public static void play(User user) {
-        Random random = new Random();
-
         String rules = "What number is missing in the progression?";
 
         String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
 
         for (var i = 0; i < COLUMN_LENGTH; i++) {
-            int progressionLength = random.nextInt(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
+            int progressionLength = Engine.getRandomNum(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
 
-            int hiddenNumIndex = random.nextInt(progressionLength);
+            int hiddenNumIndex = Engine.getRandomNum(0, progressionLength);
 
-            int firstElement = random.nextInt(MAX_NUMBER_RANGE);
-            int d = random.nextInt(MAX_NUMBER_RANGE);
+            int firstElement = Engine.getRandomNum();
+            int d = Engine.getRandomNum();
 
             if (hiddenNumIndex == 0) {
                 questionsAndAnswers[1][i] = Integer.toString(firstElement);

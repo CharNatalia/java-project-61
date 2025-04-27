@@ -27,6 +27,6 @@ public class Prime {
                 return "no";
             }
         }
-        return num == 1 ? "no" : "yes";
+        return num <= 1 ? "no" : "yes";
     }
 }

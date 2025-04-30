@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.User;
 
 public class Progression {
     private static final int ROW_LENGTH = 2;
@@ -10,7 +9,7 @@ public class Progression {
     public static final int MIN_LENGTH_PROGRESSION = 5;
     public static final int MAX_LENGTH_PROGRESSION = 11;
 
-    public static void play(User user) {
+    public static void play() {
         String rules = "What number is missing in the progression?";
 
         String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
@@ -40,6 +39,6 @@ public class Progression {
                 }
             }
         }
-        Engine.answerCheck(user, questionsAndAnswers, rules);
+        Engine.answerCheck(questionsAndAnswers, rules);
     }
 }

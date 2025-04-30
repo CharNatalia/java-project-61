@@ -1,13 +1,12 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.User;
 
 public class Prime {
     private static final int ROW_LENGTH = 2;
     private static final int COLUMN_LENGTH = 3;
 
-    public static void play(User user) {
+    public static void play() {
         String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
         String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
@@ -18,7 +17,7 @@ public class Prime {
             questionsAndAnswers[0][i] = String.format("%d", randomNum);
             questionsAndAnswers[1][i] = getRightAnswer(randomNum);
         }
-        Engine.answerCheck(user, questionsAndAnswers, rules);
+        Engine.answerCheck(questionsAndAnswers, rules);
     }
 
     public static String getRightAnswer(int num) {

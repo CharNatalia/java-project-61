@@ -19,8 +19,6 @@ public class App {
     private static final int PRIME_GAME = 6;
 
     public static void main(String[] args) throws InputMismatchException {
-        User user = new User();
-
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("""
@@ -41,28 +39,26 @@ public class App {
 
         switch (choice) {
             case GREET:
-                Cli.sayHi(user);
+                String username = Cli.greet();
                 break;
             case EVEN_GAME:
-                Even.play(user);
+                Even.play();
                 break;
             case CALC_GAME:
-                Calc.play(user);
+                Calc.play();
                 break;
             case GCD_GAME:
-                GCD.play(user);
+                GCD.play();
                 break;
             case PROGRESSION_GAME:
-                Progression.play(user);
+                Progression.play();
                 break;
             case PRIME_GAME:
-                Prime.play(user);
+                Prime.play();
                 break;
             default:
                 System.exit(0);
                 break;
         }
-
-
     }
 }

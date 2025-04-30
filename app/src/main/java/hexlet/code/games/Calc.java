@@ -1,13 +1,12 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.User;
 
 public class Calc {
     private static final int ROW_LENGTH = 2;
     private static final int COLUMN_LENGTH = 3;
 
-    public static void play(User user) {
+    public static void play() {
         String rules = "What is the result of the expression?";
 
         char[] operators = {'+', '*', '-'};
@@ -22,7 +21,7 @@ public class Calc {
             questionsAndAnswers[0][i] = String.format("%d %c %d", randomNum1, randomOperator, randomNum2);
             questionsAndAnswers[1][i] = getRightAnswer(randomNum1, randomNum2, randomOperator);
         }
-        Engine.answerCheck(user, questionsAndAnswers, rules);
+        Engine.answerCheck(questionsAndAnswers, rules);
     }
 
     public static String getRightAnswer(int randomNum1, int randomNum2, char operator) {

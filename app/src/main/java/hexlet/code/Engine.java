@@ -17,8 +17,8 @@ public class Engine {
         return RANDOM.nextInt(MAX_NUMBER_RANGE);
     }
 
-    public static void answerCheck(User user, String[][] qAndA, String rules) {
-        Cli.sayHi(user);
+    public static void answerCheck(String[][] qAndA, String rules) {
+        String username = Cli.greet();
 
         System.out.println(rules);
 
@@ -34,12 +34,12 @@ public class Engine {
                 i++;
             } else {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n"
-                        + "Let's try again, %s!%n", newAnswer, qAndA[1][i], user.getName());
+                        + "Let's try again, %s!%n", newAnswer, qAndA[1][i], username);
                 answerIsRight = false;
             }
         }
         if (answerIsRight) {
-            System.out.printf("Congratulations, %s!%n", user.getName());
+            System.out.printf("Congratulations, %s!%n", username);
         }
     }
 

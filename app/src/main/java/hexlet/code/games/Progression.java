@@ -3,7 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Arrays;
 
 public class Progression {
     private static final int ROW_LENGTH = 2;
@@ -37,9 +36,15 @@ public class Progression {
 
         int hiddenElement = firstElement + d * (hiddenNumIndex + 1);
 
-        String progression = Arrays.toString(generateProgression(progressionLength, firstElement, d));
-
-        oneRoundData[0] = progression.replace(Integer.toString(hiddenElement), "..");
+        String progressionString = "";
+        for (var element : generateProgression(progressionLength, firstElement, d)) {
+            if (element == hiddenElement) {
+                progressionString += ".. ";
+            } else {
+                progressionString += String.format("%d ", element);
+            }
+        }
+        oneRoundData[0] = progressionString;
         oneRoundData[1] = Integer.toString(hiddenElement);
         return oneRoundData;
     }

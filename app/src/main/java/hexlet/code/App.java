@@ -7,10 +7,10 @@ import hexlet.code.games.GCD;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
-    private static final int EXIT = 0;
     private static final int GREET = 1;
     private static final int EVEN_GAME = 2;
     private static final int CALC_GAME = 3;
@@ -18,7 +18,7 @@ public class App {
     private static final int PROGRESSION_GAME = 5;
     private static final int PRIME_GAME = 6;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InputMismatchException {
         User user = new User();
 
         Scanner scanner = new Scanner(System.in);
@@ -34,45 +34,32 @@ public class App {
                 0 - Exit""");
 
         var choice = 0;
-        try {
-            choice = scanner.nextInt();
-        } catch (Exception e) {
-            System.out.println("Incorrect input");
-            System.exit(0);
-        }
 
-        String userChoice = "Your choice: " + choice;
+        choice = scanner.nextInt();
+
+        System.out.println("Your choice: " + choice);
 
         switch (choice) {
-            case EXIT:
-                System.out.println(userChoice);
-                break;
             case GREET:
-                System.out.println(userChoice);
                 Cli.sayHi(user);
                 break;
             case EVEN_GAME:
-                System.out.println(userChoice);
                 Even.play(user);
                 break;
             case CALC_GAME:
-                System.out.println(userChoice);
                 Calc.play(user);
                 break;
             case GCD_GAME:
-                System.out.println(userChoice);
                 GCD.play(user);
                 break;
             case PROGRESSION_GAME:
-                System.out.println(userChoice);
                 Progression.play(user);
                 break;
             case PRIME_GAME:
-                System.out.println(userChoice);
                 Prime.play(user);
                 break;
             default:
-                System.out.println("Incorrect input");
+                System.exit(0);
                 break;
         }
 

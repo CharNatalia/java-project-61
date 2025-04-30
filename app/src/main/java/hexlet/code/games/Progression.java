@@ -3,6 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import java.util.Arrays;
+
 public class Progression {
     private static final int ROW_LENGTH = 2;
     private static final int COLUMN_LENGTH = 3;
@@ -16,30 +18,38 @@ public class Progression {
         String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
 
         for (var i = 0; i < COLUMN_LENGTH; i++) {
-            int progressionLength = Utils.getRandomNum(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
-
-            int hiddenNumIndex = Utils.getRandomNum(0, progressionLength);
-
-            int firstElement = Utils.getRandomNum();
-            int d = Utils.getRandomNum();
-
-            if (hiddenNumIndex == 0) {
-                questionsAndAnswers[1][i] = Integer.toString(firstElement);
-                questionsAndAnswers[0][i] = ".. ";
-            } else {
-                questionsAndAnswers[0][i] = firstElement + " ";
-            }
-
-            for (var j = 1; j < progressionLength; j++) {
-                int currentElement = firstElement + d * j;
-                if (hiddenNumIndex == j) {
-                    questionsAndAnswers[1][i] = Integer.toString(currentElement);
-                    questionsAndAnswers[0][i] += ".. ";
-                } else {
-                    questionsAndAnswers[0][i] += currentElement + " ";
-                }
+            var tmp = 0;
+            for (var oneRound : generateRoundData()) {
+                questionsAndAnswers[tmp][i] = oneRound;
+                tmp++;
             }
         }
         Engine.answerCheck(questionsAndAnswers, rules);
+    }
+
+    public static String[] generateRoundData() {
+        String[] oneRoundData = new String[2];
+
+        int progressionLength = Utils.getRandomNum(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
+        int hiddenNumIndex = Utils.getRandomNum(0, progressionLength);
+        int firstElement = Utils.getRandomNum();
+        int d = Utils.getRandomNum();
+
+        int hiddenElement = firstElement + d * hiddenNumIndex;
+
+        String progression = Arrays.toString(generateProgression(progressionLength, firstElement, d));
+
+        oneRoundData[0] = progression.replace(Integer.toString(hiddenElement), "..");
+        oneRoundData[1] = Integer.toString(hiddenElement);
+        return oneRoundData;
+    }
+
+    public static int[] generateProgression(int progressionLength, int firstElement, int d) {
+        int[] progression = new int[progressionLength];
+
+        for (var i = 0; i < progressionLength; i++) {
+            progression[i] = firstElement + d * (i + 1);
+        }
+        return progression;
     }
 }

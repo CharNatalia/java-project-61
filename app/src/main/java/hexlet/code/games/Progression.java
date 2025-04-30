@@ -41,7 +41,6 @@ public class Progression {
 
         oneRoundData[0] = progression.replace(Integer.toString(hiddenElement), "..");
         oneRoundData[1] = Integer.toString(hiddenElement);
-        System.out.println(progression + " " + hiddenElement);
         return oneRoundData;
     }
 

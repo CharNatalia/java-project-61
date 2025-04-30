@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Engine {
@@ -12,7 +11,6 @@ public class Engine {
         System.out.println(rules);
 
         var i = 0;
-        System.out.println(Arrays.deepToString(qAndA));
         for (var question : qAndA[0]) {
             System.out.println("Question: " + question);
             var newAnswer = SCANNER.nextLine();

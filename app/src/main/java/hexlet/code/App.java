@@ -39,7 +39,7 @@ public class App {
 
         switch (choice) {
             case GREET:
-                String username = Cli.greet();
+                Cli.greet();
                 break;
             case EVEN_GAME:
                 Even.play();

@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class GCD {
     private static final int ROW_LENGTH = 2;
@@ -12,8 +13,8 @@ public class GCD {
         String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
 
         for (var i = 0; i < COLUMN_LENGTH; i++) {
-            int randomNum1 = Engine.getRandomNum();
-            int randomNum2 = Engine.getRandomNum();
+            int randomNum1 = Utils.getRandomNum();
+            int randomNum2 = Utils.getRandomNum();
 
             questionsAndAnswers[0][i] = String.format("%d %d", randomNum1, randomNum2);
             questionsAndAnswers[1][i] = getRightAnswer(randomNum1, randomNum2);

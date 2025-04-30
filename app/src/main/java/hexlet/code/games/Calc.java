@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Calc {
     private static final int ROW_LENGTH = 2;
@@ -14,9 +15,9 @@ public class Calc {
         String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
 
         for (var i = 0; i < COLUMN_LENGTH; i++) {
-            int randomNum1 = Engine.getRandomNum();
-            int randomNum2 = Engine.getRandomNum();
-            char randomOperator = operators[Engine.getRandomNum(0, operators.length)];
+            int randomNum1 = Utils.getRandomNum();
+            int randomNum2 = Utils.getRandomNum();
+            char randomOperator = operators[Utils.getRandomNum(0, operators.length)];
 
             questionsAndAnswers[0][i] = String.format("%d %c %d", randomNum1, randomOperator, randomNum2);
             questionsAndAnswers[1][i] = getRightAnswer(randomNum1, randomNum2, randomOperator);

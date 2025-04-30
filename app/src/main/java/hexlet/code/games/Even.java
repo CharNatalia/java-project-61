@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Even {
     private static final int ROW_LENGTH = 2;
@@ -14,7 +15,7 @@ public class Even {
 
 
         for (var i = 0; i < COLUMN_LENGTH; i++) {
-            int randomNum = Engine.getRandomNum();
+            int randomNum = Utils.getRandomNum();
 
             questionsAndAnswers[0][i] = String.format("%d", randomNum);
             questionsAndAnswers[1][i] = getRightAnswer(randomNum);

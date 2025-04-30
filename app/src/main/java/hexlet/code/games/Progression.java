@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Progression {
     private static final int ROW_LENGTH = 2;
@@ -15,12 +16,12 @@ public class Progression {
         String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
 
         for (var i = 0; i < COLUMN_LENGTH; i++) {
-            int progressionLength = Engine.getRandomNum(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
+            int progressionLength = Utils.getRandomNum(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
 
-            int hiddenNumIndex = Engine.getRandomNum(0, progressionLength);
+            int hiddenNumIndex = Utils.getRandomNum(0, progressionLength);
 
-            int firstElement = Engine.getRandomNum();
-            int d = Engine.getRandomNum();
+            int firstElement = Utils.getRandomNum();
+            int d = Utils.getRandomNum();
 
             if (hiddenNumIndex == 0) {
                 questionsAndAnswers[1][i] = Integer.toString(firstElement);

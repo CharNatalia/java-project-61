@@ -13,20 +13,30 @@ public class Prime {
         String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
 
         for (var i = 0; i < COLUMN_LENGTH; i++) {
-            int randomNum = Utils.getRandomNum();
-
-            questionsAndAnswers[0][i] = String.format("%d", randomNum);
-            questionsAndAnswers[1][i] = getRightAnswer(randomNum);
+            var tmp = 0;
+            for (var oneRound : generateRoundData()) {
+                questionsAndAnswers[tmp][i] = oneRound;
+                tmp++;
+            }
         }
         Engine.answerCheck(questionsAndAnswers, rules);
     }
 
-    public static String getRightAnswer(int num) {
+    public static String[] generateRoundData() {
+        String[] oneRoundData = new String[2];
+        int randomNum = Utils.getRandomNum();
+
+        oneRoundData[0] = String.format("%d", randomNum);
+        oneRoundData[1] = isPrime(randomNum) ? "yes" : "no";
+        return oneRoundData;
+    }
+
+    public static boolean isPrime(int num) {
         for (var i = 2; i < num; i++) {
             if (num % i == 0) {
-                return "no";
+                return false;
             }
         }
-        return num <= 1 ? "no" : "yes";
+        return num > 1;
     }
 }

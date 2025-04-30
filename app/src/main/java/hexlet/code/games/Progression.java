@@ -35,12 +35,13 @@ public class Progression {
         int firstElement = Utils.getRandomNum();
         int d = Utils.getRandomNum();
 
-        int hiddenElement = firstElement + d * hiddenNumIndex;
+        int hiddenElement = firstElement + d * (hiddenNumIndex + 1);
 
         String progression = Arrays.toString(generateProgression(progressionLength, firstElement, d));
 
         oneRoundData[0] = progression.replace(Integer.toString(hiddenElement), "..");
         oneRoundData[1] = Integer.toString(hiddenElement);
+        System.out.println(progression + " " + hiddenElement);
         return oneRoundData;
     }
 

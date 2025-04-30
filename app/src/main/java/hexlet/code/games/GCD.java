@@ -13,16 +13,27 @@ public class GCD {
         String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
 
         for (var i = 0; i < COLUMN_LENGTH; i++) {
-            int randomNum1 = Utils.getRandomNum();
-            int randomNum2 = Utils.getRandomNum();
-
-            questionsAndAnswers[0][i] = String.format("%d %d", randomNum1, randomNum2);
-            questionsAndAnswers[1][i] = getRightAnswer(randomNum1, randomNum2);
+            var tmp = 0;
+            for (var oneRound : generateRoundData()) {
+                questionsAndAnswers[tmp][i] = oneRound;
+                tmp++;
+            }
         }
         Engine.answerCheck(questionsAndAnswers, rules);
     }
 
-    public static String getRightAnswer(int num1, int num2) {
+    public static String[] generateRoundData() {
+        String[] oneRoundData = new String[2];
+
+        int randomNum1 = Utils.getRandomNum();
+        int randomNum2 = Utils.getRandomNum();
+
+        oneRoundData[0] = String.format("%d %d", randomNum1, randomNum2);
+        oneRoundData[1] = Integer.toString(calculateGTD(randomNum1, randomNum2));
+        return oneRoundData;
+    }
+
+    public static int calculateGTD(int num1, int num2) {
         while (num1 != 0 && num2 != 0) {
             if (num1 > num2) {
                 num1 = num1 % num2;
@@ -30,6 +41,6 @@ public class GCD {
                 num2 = num2 % num1;
             }
         }
-        return Integer.toString(num1 + num2);
+        return num1 + num2;
     }
 }

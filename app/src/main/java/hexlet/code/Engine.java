@@ -5,26 +5,28 @@ import java.util.Scanner;
 public class Engine {
     private static final Scanner SCANNER = new Scanner(System.in);
 
-    public static void answerCheck(String[][] qAndA, String rules) {
-        String username = Cli.greet();
+    public static final int COUNT_ELEMENTS_IN_ROUND = 2;
+    public static final int ROUNDS_COUNT = 3;
 
+    public static void enginePlay(String[][] roundsData, String rules) {
+        String username = Cli.greet();
         System.out.println(rules);
 
-        var i = 0;
-        for (var question : qAndA[0]) {
+        for (String[] oneRoundData : roundsData) {
+            var question = oneRoundData[0];
+            var rightAnswer = oneRoundData[1];
+
             System.out.println("Question: " + question);
             var newAnswer = SCANNER.nextLine();
 
-            if (newAnswer.equals(qAndA[1][i])) {
+            if (newAnswer.equals(rightAnswer)) {
                 System.out.println("Correct!");
-                i++;
             } else {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\n"
-                        + "Let's try again, %s!%n", newAnswer, qAndA[1][i], username);
+                        + "Let's try again, %s!%n", newAnswer, rightAnswer, username);
                 return;
             }
         }
         System.out.printf("Congratulations, %s!%n", username);
     }
-
 }

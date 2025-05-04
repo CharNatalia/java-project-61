@@ -4,27 +4,20 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Prime {
-    private static final int ROW_LENGTH = 2;
-    private static final int COLUMN_LENGTH = 3;
+    private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static void play() {
-        String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_COUNT][Engine.COUNT_ELEMENTS_IN_ROUND];
 
-        String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
-
-        for (var i = 0; i < COLUMN_LENGTH; i++) {
-            var tmp = 0;
-            for (var oneRound : generateRoundData()) {
-                questionsAndAnswers[tmp][i] = oneRound;
-                tmp++;
-            }
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
+            questionsAndAnswers[i] = generateRoundData();
         }
-        Engine.answerCheck(questionsAndAnswers, rules);
+        Engine.enginePlay(questionsAndAnswers, RULES);
     }
 
     public static String[] generateRoundData() {
         String[] oneRoundData = new String[2];
-        int randomNum = Utils.getRandomNum();
+        int randomNum = Utils.generateRandomNumber();
 
         oneRoundData[0] = String.format("%d", randomNum);
         oneRoundData[1] = isPrime(randomNum) ? "yes" : "no";

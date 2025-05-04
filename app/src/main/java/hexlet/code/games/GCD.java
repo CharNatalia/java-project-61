@@ -4,29 +4,22 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class GCD {
-    private static final int ROW_LENGTH = 2;
-    private static final int COLUMN_LENGTH = 3;
+    private static final String RULES = "Find the greatest common divisor of given numbers.";
 
     public static void play() {
-        String rules = "Find the greatest common divisor of given numbers.";
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_COUNT][Engine.COUNT_ELEMENTS_IN_ROUND];
 
-        String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
-
-        for (var i = 0; i < COLUMN_LENGTH; i++) {
-            var tmp = 0;
-            for (var oneRound : generateRoundData()) {
-                questionsAndAnswers[tmp][i] = oneRound;
-                tmp++;
-            }
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
+            questionsAndAnswers[i] = generateRoundData();
         }
-        Engine.answerCheck(questionsAndAnswers, rules);
+        Engine.enginePlay(questionsAndAnswers, RULES);
     }
 
     public static String[] generateRoundData() {
         String[] oneRoundData = new String[2];
 
-        int randomNum1 = Utils.getRandomNum();
-        int randomNum2 = Utils.getRandomNum();
+        int randomNum1 = Utils.generateRandomNumber();
+        int randomNum2 = Utils.generateRandomNumber();
 
         oneRoundData[0] = String.format("%d %d", randomNum1, randomNum2);
         oneRoundData[1] = Integer.toString(calculateGTD(randomNum1, randomNum2));

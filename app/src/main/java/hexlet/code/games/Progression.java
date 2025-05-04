@@ -5,55 +5,43 @@ import hexlet.code.Utils;
 
 
 public class Progression {
-    private static final int ROW_LENGTH = 2;
-    private static final int COLUMN_LENGTH = 3;
-
     public static final int MIN_LENGTH_PROGRESSION = 5;
     public static final int MAX_LENGTH_PROGRESSION = 11;
 
+    public static final String RULES = "What number is missing in the progression?";
+
     public static void play() {
-        String rules = "What number is missing in the progression?";
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_COUNT][Engine.COUNT_ELEMENTS_IN_ROUND];
 
-        String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
-
-        for (var i = 0; i < COLUMN_LENGTH; i++) {
-            var tmp = 0;
-            for (var oneRound : generateRoundData()) {
-                questionsAndAnswers[tmp][i] = oneRound;
-                tmp++;
-            }
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
+            questionsAndAnswers[i] = generateRoundData();
         }
-        Engine.answerCheck(questionsAndAnswers, rules);
+        Engine.enginePlay(questionsAndAnswers, RULES);
     }
 
     public static String[] generateRoundData() {
         String[] oneRoundData = new String[2];
 
-        int progressionLength = Utils.getRandomNum(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
-        int hiddenNumIndex = Utils.getRandomNum(0, progressionLength);
-        int firstElement = Utils.getRandomNum();
-        int d = Utils.getRandomNum();
+        int progressionLength = Utils.generateRandomNumber(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
+        int firstElement = Utils.generateRandomNumber();
+        int step = Utils.generateRandomNumber();
 
-        int hiddenElement = firstElement + d * (hiddenNumIndex + 1);
+        int hiddenNumberIndex = Utils.generateRandomNumber(0, progressionLength);
 
-        String progressionString = "";
-        for (var element : generateProgression(progressionLength, firstElement, d)) {
-            if (element == hiddenElement) {
-                progressionString += ".. ";
-            } else {
-                progressionString += String.format("%d ", element);
-            }
-        }
-        oneRoundData[0] = progressionString;
-        oneRoundData[1] = Integer.toString(hiddenElement);
+        String[] progression = generateProgression(progressionLength, firstElement, step);
+
+        oneRoundData[1] = progression[hiddenNumberIndex];
+        progression[hiddenNumberIndex] = "..";
+        oneRoundData[0] = String.join(" ", progression);
+
         return oneRoundData;
     }
 
-    public static int[] generateProgression(int progressionLength, int firstElement, int d) {
-        int[] progression = new int[progressionLength];
+    public static String[] generateProgression(int progressionLength, int firstElement, int step) {
+        String[] progression = new String[progressionLength];
 
         for (var i = 0; i < progressionLength; i++) {
-            progression[i] = firstElement + d * (i + 1);
+            progression[i] = Integer.toString(firstElement + step * (i + 1));
         }
         return progression;
     }

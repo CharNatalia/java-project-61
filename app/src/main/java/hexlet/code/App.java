@@ -31,9 +31,7 @@ public class App {
                 6 - Prime
                 0 - Exit""");
 
-        var choice = 0;
-
-        choice = scanner.nextInt();
+        var choice = scanner.nextInt();
 
         System.out.println("Your choice: " + choice);
 
@@ -57,7 +55,6 @@ public class App {
                 Prime.play();
                 break;
             default:
-                System.exit(0);
                 break;
         }
     }

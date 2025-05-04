@@ -4,38 +4,30 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calc {
-    private static final int ROW_LENGTH = 2;
-    private static final int COLUMN_LENGTH = 3;
+    private static final char[] OPERATORS = {'+', '*', '-'};
+    private static final String RULES = "What is the result of the expression?";
 
     public static void play() {
-        String rules = "What is the result of the expression?";
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_COUNT][Engine.COUNT_ELEMENTS_IN_ROUND];
 
-        char[] operators = {'+', '*', '-'};
-
-        String[][] questionsAndAnswers = new String[ROW_LENGTH][COLUMN_LENGTH];
-
-        for (var i = 0; i < COLUMN_LENGTH; i++) {
-            var tmp = 0;
-            for (var oneRound : generateRoundData(operators)) {
-                questionsAndAnswers[tmp][i] = oneRound;
-                tmp++;
-            }
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
+            questionsAndAnswers[i] = generateRoundData();
         }
-        Engine.answerCheck(questionsAndAnswers, rules);
+        Engine.enginePlay(questionsAndAnswers, RULES);
     }
 
-    public static String[] generateRoundData(char[] operators) {
+    public static String[] generateRoundData() {
         String[] oneRoundData = new String[2];
-        int randomNum1 = Utils.getRandomNum();
-        int randomNum2 = Utils.getRandomNum();
-        char randomOperator = operators[Utils.getRandomNum(0, operators.length)];
+        int randomNum1 = Utils.generateRandomNumber();
+        int randomNum2 = Utils.generateRandomNumber();
+        char randomOperator = OPERATORS[Utils.generateRandomNumber(0, OPERATORS.length)];
 
         oneRoundData[0] = String.format("%d %c %d", randomNum1, randomOperator, randomNum2);
-        oneRoundData[1] = Integer.toString(getCalculated(randomNum1, randomNum2, randomOperator));
+        oneRoundData[1] = Integer.toString(calculateResult(randomNum1, randomNum2, randomOperator));
         return oneRoundData;
     }
 
-    public static int getCalculated(int randomNum1, int randomNum2, char operator) {
+    public static int calculateResult(int randomNum1, int randomNum2, char operator) {
         return switch (operator) {
             case '+' -> randomNum1 + randomNum2;
             case '*' -> randomNum1 * randomNum2;
